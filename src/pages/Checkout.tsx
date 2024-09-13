@@ -63,7 +63,7 @@ const Checkout = () => {
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3} flexDirection={'column'}>
           {/* Name Field */}
-          <Grid component="div" item xs={12}>
+          <Grid size={{ xs: 2, sm: 4, md: 4 }} >
             <TextField
               label="Name"
               name="name"
@@ -76,7 +76,7 @@ const Checkout = () => {
             />
           </Grid>
 
-          <Grid component="div" item xs={12}>
+          <Grid size={{ xs: 2, sm: 4, md: 4 }} >
             <TextField
               label="Email"
               name="email"
@@ -90,7 +90,7 @@ const Checkout = () => {
             />
           </Grid>
 
-          <Grid component="div" item xs={12}>
+          <Grid size={{ xs: 2, sm: 4, md: 4 }} >
             <TextField
               label="Address"
               name="address"
@@ -103,7 +103,7 @@ const Checkout = () => {
             />
           </Grid>
 
-          <Grid component="div" item xs={12}>
+          <Grid size={{ xs: 2, sm: 4, md: 4 }} >
             <TextField
               label="Card Number"
               name="cardNumber"
