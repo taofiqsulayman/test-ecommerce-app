@@ -3,8 +3,7 @@
 
 This is a simple e-commerce store built with **React TypeScript**, **React Query**, **React Router**, **Context API**, and **Material UI**, using **Vite** and **Yarn** as tools. The app allows users to browse products, add items to the cart, and proceed through a checkout process. The app also features pagination for product browsing and manages the cart state globally.
 
-![home](src/assets/screencapture-localhost-5173-2024-09-13-04_31_38.png) 
-![cart](src/assets/screencapture-localhost-5173-cart-2024-09-13-04_36_39.png) ![text](src/assets/screencapture-localhost-5173-checkout-2024-09-13-04_43_51.png)
+![app screens](src/assets/screenshot.png)
 
 ## **Features**
 - **Product Listing**: Fetch and display products from an API (`dummyjson.com/products`).
