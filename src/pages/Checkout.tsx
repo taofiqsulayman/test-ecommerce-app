@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { Box, Button, Container, TextField, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 
 const Checkout = () => {
-  const { cartItems, getTotal } = useCart();
+  const { cartItems, getTotal, clearCart } = useCart();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -44,79 +46,85 @@ const Checkout = () => {
       return;
     }
 
-    // Simulate purchase success
     alert('Purchase successful!');
+    clearCart();
     navigate('/');
   };
 
   if (cartItems.length === 0) {
-    return <div>Your cart is empty.</div>;
+    return <Container sx={{ textAlign: 'center', py: 4 }}><Typography variant="h5">Your cart is empty.</Typography></Container>;
   }
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block mb-2">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            className="border rounded p-2 w-full"
-          />
-          {formErrors.name && <p className="text-red-500">{formErrors.name}</p>}
-        </div>
+    <Container sx={{ py: 4 }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 4, textAlign: 'center' }}>Checkout</Typography>
 
-        <div>
-          <label className="block mb-2">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="border rounded p-2 w-full"
-          />
-          {formErrors.email && <p className="text-red-500">{formErrors.email}</p>}
-        </div>
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={3} flexDirection={'column'}>
+          {/* Name Field */}
+          <Grid item xs={12}>
+            <TextField
+              label="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              fullWidth
+              error={!!formErrors.name}
+              helperText={formErrors.name}
+              variant="outlined"
+            />
+          </Grid>
 
-        <div>
-          <label className="block mb-2">Address</label>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={handleInputChange}
-            className="border rounded p-2 w-full"
-          />
-          {formErrors.address && <p className="text-red-500">{formErrors.address}</p>}
-        </div>
+          <Grid item xs={12}>
+            <TextField
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              fullWidth
+              error={!!formErrors.email}
+              helperText={formErrors.email}
+              variant="outlined"
+            />
+          </Grid>
 
-        <div>
-          <label className="block mb-2">Card Number</label>
-          <input
-            type="text"
-            name="cardNumber"
-            value={formData.cardNumber}
-            onChange={handleInputChange}
-            className="border rounded p-2 w-full"
-          />
-          {formErrors.cardNumber && <p className="text-red-500">{formErrors.cardNumber}</p>}
-        </div>
+          <Grid item xs={12}>
+            <TextField
+              label="Address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              fullWidth
+              error={!!formErrors.address}
+              helperText={formErrors.address}
+              variant="outlined"
+            />
+          </Grid>
 
-        <div className="mt-4">
-          <h3 className="text-xl">Total: ${getTotal()}</h3>
-        </div>
+          <Grid item xs={12}>
+            <TextField
+              label="Card Number"
+              name="cardNumber"
+              value={formData.cardNumber}
+              onChange={handleInputChange}
+              fullWidth
+              error={!!formErrors.cardNumber}
+              helperText={formErrors.cardNumber}
+              variant="outlined"
+              inputProps={{ maxLength: 16 }} 
+            />
+          </Grid>
+        </Grid>
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
-        >
-          Submit Payment
-        </button>
+        <Box sx={{ mt: 4, textAlign: 'center' }}>
+          <Typography variant="h5" sx={{ mb: 2 }}>Total: ${getTotal()}</Typography>
+          <Button variant="contained" color="primary" size="large" type="submit">
+            Submit Payment
+          </Button>
+        </Box>
       </form>
-    </div>
+    </Container>
   );
 };
 
