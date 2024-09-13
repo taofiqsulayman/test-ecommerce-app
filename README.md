@@ -5,6 +5,8 @@ This is a simple e-commerce store built with **React TypeScript**, **React Query
 
 ![app screens](src/assets/screenshot.png)
 
+You can check the live **demo** [here](https://test-ecommerce-app.vercel.app/)
+
 ## **Features**
 - **Product Listing**: Fetch and display products from an API (`dummyjson.com/products`).
 - **Pagination**: Browse products with pagination, showing 8 products per page.
