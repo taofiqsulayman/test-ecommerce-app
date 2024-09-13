@@ -16,7 +16,7 @@ This is a simple e-commerce store built with **React TypeScript**, **React Query
 
 ## **Project Structure**
 
-
+```
 src/
 │── api/
 │   └── products.ts        # API functions to fetch product data
@@ -34,7 +34,7 @@ src/
 │── App.tsx                # Main app file with routing
 │── main.tsx               # Entry point to render app
 │── index.css              # Global CSS file
-
+```
 
 ## **Tech Stack**
 - **React TypeScript**: Used for building interactive user interfaces with type safety.
