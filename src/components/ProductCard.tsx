@@ -65,7 +65,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </Typography>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-                    <Typography variant="h6" sx={{ mt: 2, border: '1px solid #000', p: 1, borderRadius: 1 }}>
+                    <Typography variant="h6" sx={{ mt: 2, border: '1px solid #000', py: 1, px: 2, borderRadius: 1 }}>
                         ₦ {product.price}
                     </Typography>
                     <Button variant="contained" sx={{ mt: 2, background: '#7CE0C3' }} onClick={handleAddToCart}>

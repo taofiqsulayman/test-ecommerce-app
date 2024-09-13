@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://dummyjson.com/products';
-
-export const fetchProducts = async () => {
-  const response = await axios.get(BASE_URL);
+export const fetchProducts = async ({ pageParam = 1, limit = 8 }) => {
+  const skip = (pageParam - 1) * limit;
+  const response = await axios.get(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
   return response.data;
 };
