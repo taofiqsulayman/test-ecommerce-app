@@ -1,3 +1,4 @@
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '../api/products';
 import ProductCard from '../components/ProductCard';
@@ -23,6 +24,7 @@ const Home = () => {
   if (isLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexWrap: 'wrap', gap: 4 }}>
+        <Typography>Loading...</Typography>
         <Skeleton variant="rectangular" width={350} height={600} />
         <Skeleton variant="rectangular" width={350} height={600} />
         <Skeleton variant="rectangular" width={350} height={600} />

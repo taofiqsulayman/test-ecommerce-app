@@ -1,3 +1,4 @@
+import React from 'react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import { Box, Button, Card, CardContent, CardMedia, Typography, IconButton, Container } from '@mui/material';

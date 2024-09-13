@@ -1,17 +1,23 @@
-// import { render, screen } from '@testing-library/react';
-// import '@testing-library/jest-dom';
-// import { test } from '@jest/globals'
-// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-// import Home from './Home';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { fetchProducts } from '../api/products';
+import Home from './Home';
 
-// const queryClient = new QueryClient();
+jest.mock('../api/products');
 
-// test('renders loading state', () => {
-//   render(
-//     <QueryClientProvider client={queryClient}>
-//       <Home />
-//     </QueryClientProvider>
-//   );
+const createWrapper = () => {
+    const queryClient = new QueryClient();
+    return ({ children }) => (
+        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    );
+};
 
-//   expect(screen.getByText(/Loading/i)).toBeInTheDocument();
-// });
+describe('Home Component', () => {
+    it('renders loading state initially', () => {
+        fetchProducts.mockImplementation(() => new Promise(() => { }));
+        render(<Home />, { wrapper: createWrapper() });
+        expect(screen.getByText(/loading/i)).toBeInTheDocument();
+    });
+
+});
