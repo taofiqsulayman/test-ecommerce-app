@@ -15,7 +15,6 @@ const Home = () => {
   const { data, isLoading, isError, error, isFetching } = useQuery({
     queryKey: ['products', page],
     queryFn: () => fetchProducts({ pageParam: page, limit }),
-    keepPreviousData: true,  
   });
 
   const handleNextPage = () => setPage((old) => old + 1);
