@@ -20,7 +20,7 @@ const Cart = () => {
 
       <Grid container spacing={3}>
         {cartItems.map((item) => (
-          <Grid item xs={12} md={6} key={item.id}>
+          <Grid component='div' item xs={12} md={6} key={item.id}>
             <Card sx={{ display: 'flex', alignItems: 'center', p: 2, width: '320px', justifyContent: 'space-between', height: '200px' }}>
               <CardMedia
                 component="img"
